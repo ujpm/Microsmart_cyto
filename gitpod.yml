@@ -1,0 +1,25 @@
+tasks:
+  - name: 🐍 Backend (FastAPI)
+    init: |
+      cd backend
+      pip install -r requirements.txt
+    command: |
+      cd backend
+      uvicorn src.main:app --reload --port 8000
+
+
+  - name: ⚛️ Frontend (React)
+    init: |
+      cd frontend
+      npm install
+    command: |
+      cd frontend
+      npm run dev -- --host
+
+ports:
+  - port: 8000
+    onOpen: ignore
+    visibility: public
+  - port: 5173
+    onOpen: open-preview
+    visibility: public

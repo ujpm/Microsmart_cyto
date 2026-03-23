@@ -1,43 +1,156 @@
-## Inspiration
+# MicroSmart PF
 
-When we talk about malnutrition, we usually talk about a lack of food. But in underserved communities, there’s a hidden thief: intestinal parasites. You can’t cure malnutrition if parasites are stealing the nutrients. We created MicroSmart because to fight malnutrition, we first need a fast, low-cost way to diagnose the severe iron deficiency it causes and the parasites that make it worse.
+![Version](https://img.shields.io/badge/Version-Beta_1.2-cyan?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Research_Preview-purple?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 
-As **clinical laboratory scientists**, we don't just read about the devastating cycle of malnutrition—we see it under the microscope. We know the physical toll of staring down the eyepieces for the 80th time in a single shift, eyes burning and neck aching, fighting through exhaustion to screen messy stool samples for parasite eggs, or scanning blood smears for the pale, empty red blood cells that scream severe iron deficiency. 
+**The Premier Autonomous Agent for *P. falciparum* Diagnostics.**
 
-We also know the crushing pressure of a waiting room filled with anxious patients whose recovery depends on our tired eyes not missing a crucial detail. We built MicroSmart because we were desperate for a better way to break this vicious cycle. We created the AI co-pilot we wished we had to instantly identify the root biological causes of malnutrition.
+MicroSmart PF is a high-performance diagnostic interface that bridges **Computer Vision** and **Clinical Reasoning**. It automates the detection of Malaria parasites in thin blood smears and generates WHO-compliant pathology reports in real-time.
 
-## What it does
+Designed as a professional "Cockpit" for lab technicians and pathologists, it prioritizes speed, accuracy, and dark-mode ergonomics.
 
-MicroSmart acts as an AI-powered digital co-pilot for laboratory technicians in resource-limited settings. By simply analyzing images of stool smears and thin blood smears captured through a microscope, our computer vision model instantly detects intestinal parasites (like hookworm ova) and quantifies red blood cell morphology to grade iron deficiency anemia.
+---
 
-Instead of replacing the technician, it augments their expertise. It takes the "heavy lifting" out of manual, eye-straining screening, providing a fast, highly accurate preliminary analysis so the tech can simply verify the results. This allows clinics to drastically reduce turnaround time, ensuring that targeted nutritional interventions and deworming treatments can begin immediately.
+## 🌌 The MicroSmart Ecosystem
 
-## How we built it
+MicroSmart PF is the specialized malaria node of the larger **MicroSmart Project**. We are building a constellation of autonomous agents for hematology and cytology.
 
-We engineered MicroSmart as a robust, full-stack diagnostic platform tailored for the **Fuel the Future Hackathon**.
+- **MicroSmart PF**: *P. falciparum* Malaria (Active)
+- **MicroSmart Heme**: Hematology & CBC Analysis (In Development)
+- **MicroSmart Cyto**: Cervical Cancer Screening (R&D)
 
-* **The AI Vision Engine:** At the core is a highly trained object detection model (using YOLO architecture, running via our Python backend) specifically tuned to recognize the distinct morphological features of parasite ova in chaotic stool backgrounds, and hypochromic, microcytic red blood cells in blood smears.
-* **The Brain:** We integrated an intelligent agent (`brain.py`) to process the raw detection data and generate clinical context, bridging the gap between raw bounding boxes and actionable nutritional/diagnostic insights.
-* **The Interface:** We built the frontend using React, TypeScript, and Tailwind CSS to ensure a lightning-fast, ultra-clean UI. Knowing that rural lab environments are high-stress and resource-constrained, we designed the dashboard to be intuitive, requiring zero technical training for a clinician to upload an image and read the results.
+[🌐 Explore the Parent Project](https://microsmartpf.xyz)
 
-## Challenges we ran into
+---
 
-Microscopic medical imagery is notoriously chaotic, but stool and blood samples present unique hurdles. We had to overcome issues with inconsistent smear preparations, varying illumination from different microscopes, and the sheer amount of debris in stool samples that can mimic parasite eggs.
+## 🚀 Key Features
 
-Technically, bridging the heavy computer vision model with a lightweight, responsive web interface without causing lag or timeouts was a major hurdle. We had to optimize our backend to handle high-resolution image processing efficiently so the technician isn't left staring at a loading screen while a patient waits.
+### 🔬 The "Double-Engine" Architecture
+- **The Eye (Vision Agent)**: Powered by **YOLOv8**. Scans slides at ~40ms/frame to detect Trophozoites, Gametocytes, and WBCs with pixel-perfect bounding boxes.
+- **The Brain (Reasoning Agent)**: Powered by **Llama 3.3 (via Cerebras)**. Interprets raw cellular counts, calculates parasitemia levels, and acts as a virtual pathologist to write the final report.
 
-## Accomplishments that we're proud of
+### 🖥️ Interface (Frontend)
+- **Professional Workbench**: A collapsible, 3-pane dashboard designed for high-throughput screening.
+- **Batch Processing**: Queue multiple slides and process them sequentially without blocking the UI.
+- **Smart Viewer**: High-fidelity deep zoom with **AI/RAW toggles** (Spacebar shortcut).
+- **Filmstrip Navigation**: Rapidly switch between patient samples using Arrow Keys.
+- **Zero-Latency UX**: Local-first state management with optimized React rendering.
 
-We are incredibly proud of the high detection accuracy we achieved, successfully teaching an AI to recognize the microscopic thieves that drive malnutrition. Beyond the model, we are proud of the user experience. We didn't just build an algorithm in a notebook; we built a fully functional, deployable prototype that actually understands the realities of the clinical workflow in underserved regions.
+---
 
-## What we learned
+## 🛠️ Tech Stack
 
-We gained a profound understanding of the intersection between clinical parasitology, nutritional health, and machine learning. We learned that tackling malnutrition isn't just about food supply—it's about diagnostics. We also learned how to better architect communication between intensive Python backend processes and modern React frontends.
+**Frontend**
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org) [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev) [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
 
-## What's next for MicroSmart
+**Backend**
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com) [![YOLOv8](https://img.shields.io/badge/YOLOv8-Ultralytics-FF6D00?style=for-the-badge)](https://github.com/ultralytics/ultralytics) [![Cerebras](https://img.shields.io/badge/Cerebras-Llama3.3-000000?style=for-the-badge)](https://www.cerebras.net)
 
-MicroSmart is just the beginning of a much larger ecosystem for global health. Moving forward, we plan to:
+---
 
-1. **Deploy MicroSmart Hardware:** Integrate this software directly into modified OpenFlexure 3D-printed microscopes to create an all-in-one edge diagnostic device for remote clinics and community feeding centers.
-2. **Clinical Validation:** Partner with local clinics to run shadow-trials comparing MicroSmart's speed and accuracy against manual gold-standard microscopy for anemia and parasite detection.
-3. **Expand the Ecosystem:** Advance our R&D to detect a wider range of micronutrient deficiencies and expand our LLM assistant, **MicroSmart Heme**, to provide holistic clinical decision support for malnutrition programs.
+## ⚡ Getting Started
+
+### 1️⃣ Clone the Repository
+```bash
+git clone [https://github.com/ujpm/microsmart_pf.git](https://github.com/ujpm/microsmart_pf.git)
+cd microsmart_pf
+
+```
+
+### 2️⃣ Initialize Backend
+
+The backend handles image processing and AI inference.
+
+1. Create a virtual environment:
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+```
+
+
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+
+```
+
+
+3. **Configure API Keys:** Create a `.env` file in `backend/` and add your Cerebras key:
+```env
+CEREBRAS_API_KEY="csk-REPLACE_WITH_YOUR_KEY"
+
+```
+
+
+4. **Launch the Server:**
+*Note: We bind to `0.0.0.0` to ensure access from cloud IDEs (Codespaces/Gitpod).*
+```bash
+uvicorn src.main:app --reload --host 0.0.0.0 --port 8000
+
+```
+
+
+
+### 3️⃣ Initialize The Body (Frontend)
+
+The frontend is the interactive cockpit.
+
+1. Open a new terminal.
+2. Setup and run:
+```bash
+cd frontend
+npm install
+npm run dev
+
+```
+
+
+3. Access the workbench at: `http://localhost:5173`
+
+---
+
+## 🗺️ Architecture Diagram
+
+```mermaid
+graph LR
+    User[Lab Technician] -->|Uploads Batch| Cockpit[React Workbench]
+    Cockpit -->|Queue Management| Backend[FastAPI Server]
+    
+    subgraph "The Double-Engine"
+        Backend -->|Raw Slide| Vision[YOLOv8 'The Eye']
+        Vision -->|Bounding Boxes + Counts| Backend
+        Backend -->|Aggregated Data| Brain[Llama 3.3 'The Brain']
+        Brain -->|Clinical Pathology Report| Backend
+    end
+    
+    Backend -->|JSON Analysis| Cockpit
+    Cockpit -->|Visualizes| Display[Smart Viewer & Console]
+
+```
+
+---
+
+## ⌨️ Shortcuts
+
+| Key | Action |
+| --- | --- |
+| **Spacebar** | Toggle between AI Annotation and Raw Image |
+| **Arrow Right** | Next Slide |
+| **Arrow Left** | Previous Slide |
+
+---
+
+## 📜 Credits
+
+**Architecture & Development**
+Designed by **UJPM**
+
+**License**
+This project is open source under the MIT License. See `LICENSE` for details.
+
+```
+
+```
